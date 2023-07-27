@@ -10,3 +10,9 @@
 .span{
   padding: 38px;
 }
+
+.active{
+  border-left: 5px solid rgb(32, 17, 17);
+  color: white;
+  transition: 200ms ease-in;
+}

@@ -11,12 +11,18 @@ import { MatButtonModule} from '@angular/material/button';
 import { HomeComponent } from './componentes/home/home.component';
 import { MatSidenavModule} from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { CategoriaComponent } from './componentes/categoria/categoria.component';
+import { HistoricoComponent } from './componentes/historico/historico.component';
+import { ImportacaoComponent } from './componentes/importacao/importacao.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    CategoriaComponent,
+    HistoricoComponent,
+    ImportacaoComponent
   ],
   imports: [
     BrowserModule,

@@ -29,17 +29,17 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav opened="true" mode="side">
     <mat-nav-list>
-      <a mat-list-item>home</a>
-      <a mat-list-item>account</a>
-      <a mat-list-item>contact us</a>
-      <a mat-list-item>help</a>
+      <a
+        routerLink="home" routerLinkActive="active" mat-list-item>home</a>
+      <a routerLink="category" routerLinkActive="active" mat-list-item>Category</a>
+      <a routerLink="import" routerLinkActive="active" mat-list-item>Import</a>
+      <a routerLink="history" routerLinkActive="active" mat-list-item>History</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div style="height: 88vh;">
+    <div style="height: 90vh;">
       <router-outlet>
       </router-outlet>
-      <h1>teste</h1>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
