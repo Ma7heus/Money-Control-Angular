@@ -1,0 +1,27 @@
+.container-mes {
+  display: flex;
+  height: 10%;
+  width: 100%;
+  justify-content: center;
+  background-color: rgb(130, 130, 215);
+  align-items: center;
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+}
+
+mat-grid-list{
+  width: 90%;
+
+
+}
+
+mat-grid-tile {
+  background: lightblue;
+  border-radius: 30px;
+}

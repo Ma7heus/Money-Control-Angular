@@ -13,6 +13,7 @@
 
 .active{
   border-left: 5px solid rgb(32, 17, 17);
+  background-color: rgb(228, 223, 233);
   color: white;
   transition: 200ms ease-in;
 }

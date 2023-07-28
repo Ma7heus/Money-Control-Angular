@@ -14,6 +14,13 @@ import { MatListModule } from '@angular/material/list';
 import { CategoriaComponent } from './componentes/categoria/categoria.component';
 import { HistoricoComponent } from './componentes/historico/historico.component';
 import { ImportacaoComponent } from './componentes/importacao/importacao.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +39,13 @@ import { ImportacaoComponent } from './componentes/importacao/importacao.compone
     MatIconModule,
     MatButtonModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatButtonToggleModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
