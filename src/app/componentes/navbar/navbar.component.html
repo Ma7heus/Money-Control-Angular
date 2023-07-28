@@ -29,12 +29,25 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav opened="true" mode="side">
     <mat-nav-list>
-      <a
-        routerLink="home" routerLinkActive="active" mat-list-item>Home</a>
-      <a routerLink="category" routerLinkActive="active" mat-list-item>Category</a>
-      <a routerLink="import" routerLinkActive="active" mat-list-item>Import</a>
-      <a routerLink="history" routerLinkActive="active" mat-list-item>History</a>
+      <a routerLink="home" routerLinkActive="active" mat-list-item class="custom-link">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </a>
+      <a routerLink="category" routerLinkActive="active" mat-list-item class="custom-link">
+        <mat-icon>category</mat-icon>
+        <span>Category</span>
+      </a>
+      <a routerLink="import" routerLinkActive="active" mat-list-item class="custom-link">
+        <mat-icon>publish</mat-icon>
+        <span>Import</span>
+      </a>
+      <a routerLink="history" routerLinkActive="active" mat-list-item class="custom-link">
+        <mat-icon>history</mat-icon>
+        <span>History</span>
+      </a>
     </mat-nav-list>
+
+
   </mat-sidenav>
   <mat-sidenav-content>
     <div style="height: 90vh;">

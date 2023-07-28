@@ -1,0 +1,34 @@
+.container-head {
+  display: block;
+}
+.container-table{
+  height: 40%;
+  width: 90%;
+}
+
+.titulo {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.titulo span {
+  margin-right: 10px;
+}
+
+.mat-toolbar {
+  display: block;
+  margin-bottom: 10px; /* Adicione espaçamento entre as toolbars, se desejado */
+}
+
+.filtro {
+  width: 90%;
+  display: flex;
+  align-items: center;
+}
+
+/* Adicione espaçamento entre o label, input e ícone de busca, se desejado */
+.filtro mat-form-field,
+.filtro mat-icon {
+  margin-left: 8px;
+}

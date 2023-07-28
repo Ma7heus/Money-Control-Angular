@@ -1,0 +1,18 @@
+.container-head {
+  display: block;
+}
+.container-table{
+  height: 40%;
+  width: 90%;
+}
+
+.titulo {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.titulo span {
+  margin-right: 10px;
+}
+

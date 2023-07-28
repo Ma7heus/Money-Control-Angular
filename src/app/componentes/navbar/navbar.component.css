@@ -17,3 +17,15 @@
   color: white;
   transition: 200ms ease-in;
 }
+
+.custom-link {
+  display: b;          /* Cria um flex container */
+  align-items: center;    /* Centraliza os itens verticalmente */
+}
+
+.custom-link mat-icon {
+  margin-right: 10px;      /* Adiciona espaço entre o ícone e o texto */
+}
+
+
+
