@@ -20,6 +20,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
+import { TabelaComponent } from './compartilhados/tabela/tabela.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 
 @NgModule({
@@ -29,7 +32,8 @@ import { MatTableModule } from '@angular/material/table';
     HomeComponent,
     CategoriaComponent,
     HistoricoComponent,
-    ImportacaoComponent
+    ImportacaoComponent,
+    TabelaComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,8 @@ import { MatTableModule } from '@angular/material/table';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

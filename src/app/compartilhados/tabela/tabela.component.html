@@ -1,0 +1,47 @@
+<div class="table-container">
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- Coluna 1: ID -->
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+  </ng-container>
+
+  <!-- Coluna 2: Nome -->
+  <ng-container matColumnDef="nome">
+    <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.nome}} </mat-cell>
+  </ng-container>
+
+  <!-- Coluna 3: Descrição -->
+  <ng-container matColumnDef="descricao">
+    <mat-header-cell *matHeaderCellDef> Descrição </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.descricao}} </mat-cell>
+  </ng-container>
+
+  <!-- Coluna 4: Preço -->
+  <ng-container matColumnDef="preco">
+    <mat-header-cell *matHeaderCellDef> Preço </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.preco}} </mat-cell>
+  </ng-container>
+
+  <!-- Coluna 5: Ações (Editar e Excluir) -->
+  <ng-container matColumnDef="acoes">
+    <mat-header-cell *matHeaderCellDef> Ações </mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <button mat-icon-button color="primary" (click)="editarItem(row)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="excluirItem(row)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <!-- Definindo as colunas exibidas na tabela -->
+  <mat-header-row *matHeaderRowDef="colunas"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: colunas;"></mat-row>
+</mat-table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+</div>

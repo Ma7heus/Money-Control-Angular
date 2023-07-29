@@ -1,0 +1,20 @@
+/* Adiciona espaçamento ao redor da tabela */
+.table-container {
+  margin: 20px;
+}
+
+/* Define a cor de fundo para as células da tabela */
+.mat-cell {
+  background-color: #f5f5f5;
+}
+
+/* Define a cor de fundo para as células de cabeçalho da tabela */
+.mat-header-cell {
+  background-color: #e0e0e0;
+}
+
+/* Estilize os botões de ação da tabela */
+button.mat-icon-button {
+  margin: 5px;
+}
+
