@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  listaMeses = ['JAN','FEV','MAR','ABR','MAI','JUN','JAN','JUL','AGO','SET','OUT','NOV','DEZ'];
+  listaMeses = ['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
 
   listaCategorias = [1,2,3,4];
 }

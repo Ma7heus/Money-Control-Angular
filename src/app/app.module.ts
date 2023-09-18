@@ -22,6 +22,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { TabelaComponent } from './compartilhados/tabela/tabela.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { BuildingComponent } from './componentes/building/building.component';
 
 
 
@@ -33,7 +34,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     CategoriaComponent,
     HistoricoComponent,
     ImportacaoComponent,
-    TabelaComponent
+    TabelaComponent,
+    BuildingComponent
   ],
   imports: [
     BrowserModule,
