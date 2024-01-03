@@ -1,5 +1,15 @@
 <div class="container-head">
   <span></span>
   <mat-toolbar class="titulo">
-    <span>IMPORTAÇÃO DE ARQUIVOS</span>
+    <span>{{ title }}</span>
   </mat-toolbar>
+
+  <div>
+    <input type="file" (change)="onFileChange($event)">
+  </div>
+
+  <ul>
+    <li *ngFor="let dado of dados">{{ dado }}</li>
+  </ul>
+
+</div>
