@@ -22,6 +22,8 @@ h1 {
 
 input {
   width: 100%;
+  margin-top: 15px;
+  margin-left: 15px;
 }
 
 .container-dados {
@@ -31,3 +33,39 @@ input {
   align-items: center;
   padding-left: 10px;
 }
+
+button {
+  width: 10%;
+  height: 40px;
+  margin-top: 15px;
+  margin-left: 15px;
+  border: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table thead th {
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 0;
+}
+
+table tbody td {
+  padding: 5px 0;
+  text-align: left;  
+}
+
+table tbody tr:nth-child(odd) {
+  background-color: #ccc;
+}
+
+table tbody tr:hover {
+  background-color: #eee;
+}
+

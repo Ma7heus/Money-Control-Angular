@@ -10,9 +10,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 export class ImportacaoComponent implements OnInit {
 
   title = 'IMPORTAÇÃO DE ARQUIVOS';
-  dados = '';
+  dados: string[] = [];
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
   }
@@ -20,18 +20,22 @@ export class ImportacaoComponent implements OnInit {
   onFileChange(event: Event) {
     const target = event.target as HTMLInputElement;
     const file: File = (target.files as FileList)[0];
-
     const reader: FileReader = new FileReader();
 
     reader.onloadend = (e) => {
       const fileContent: string = reader.result as string;
-      console.log(fileContent);
-      this.dados = fileContent;
-
+      var dataList = fileContent.split('\n')
+      this.dados = dataList;
     };
-
     reader.readAsText(file);
   }
-  
+
+  onUpload() {
+    console.log('upload');
+    localStorage.setItem('dados', JSON.stringify(this.dados));
+    console.log(localStorage.getItem('dados'));
+  }
+   
+
 
 }
