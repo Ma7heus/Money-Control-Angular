@@ -1,44 +1,50 @@
-<div class="container-head">
-  <span></span>
-  <mat-toolbar class="titulo">
-    <span>{{ title }}</span>
-  </mat-toolbar>
-
-  <div class="input-group mb-3">
-    <input
-      type="file"
-      (change)="onFileChange($event)"
-      class="form-control"
-      id="inputGroupFile"
-      aria-describedby="inputGroupFileAddon04"
-      aria-label="Upload">
+<form class="d-flex flex-column align-items-center">
+  <div class="container-head mb-4">
+    <span></span>
+    <mat-toolbar class="titulo">
+      <span>{{ title }}</span>
+    </mat-toolbar>
   </div>
 
-  <div>
-    <button
-      mat-raised-button color="primary"
-      (click)="onUpload()">Upload</button>
-  </div>
+  <div class="container-dados">
+    <div class="input-group mb-3">
+      <input
+        type="file"
+        (change)="onFileChange($event)"
+        class="form-control"
+        id="inputGroupFile"
+        aria-describedby="inputGroupFileAddon04"
+        aria-label="Upload">
+    </div>
 
-  <div>
-    <table class="table table-bordered">
-      <thead>
+    <div class="row">
+      <div class="col-sm-6 mb-3">
+        <button mat-raised-button color="primary" (click)="showData($event)">Show Data</button>
+      </div>
+      <div class="col-sm-6 mb-3">
+        <button mat-raised-button color="primary" type="button" (click)="onUpload()">Upload</button>
+      </div>
+    </div>
+
+    <div>
+      <table class="table table-bordered">
+        <thead>
         <tr>
           <th>Data Compra</th>
           <th>Tipo</th>
           <th>Nome</th>
           <th>Valor</th>
         </tr>
-      </thead>
-      <tbody>
-
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of dataList">
+          <td>{{ item.data }}</td>
+          <td>{{ item.categoria }}</td>
+          <td>{{ item.descricao }}</td>
+          <td>{{ item.valor }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-
-
-</div>
-
-
-
-
+</form>
