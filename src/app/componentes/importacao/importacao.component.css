@@ -58,7 +58,7 @@ table thead th {
 
 table tbody td {
   padding: 5px 0;
-  text-align: left;  
+  text-align: left;
 }
 
 table tbody tr:nth-child(odd) {
@@ -68,4 +68,5 @@ table tbody tr:nth-child(odd) {
 table tbody tr:hover {
   background-color: #eee;
 }
+
 

@@ -4,18 +4,24 @@
     <span>{{ title }}</span>
   </mat-toolbar>
 
-  <div>
-    <input type="file" (change)="onFileChange($event)">
+  <div class="input-group mb-3">
+    <input
+      type="file"
+      (change)="onFileChange($event)"
+      class="form-control"
+      id="inputGroupFile"
+      aria-describedby="inputGroupFileAddon04"
+      aria-label="Upload">
   </div>
 
   <div>
-    <button mat-raised-button color="primary" (click)="onUpload()">Upload</button>
+    <button
+      mat-raised-button color="primary"
+      (click)="onUpload()">Upload</button>
   </div>
 
   <div>
-
-
-    <table class="table table-striped">
+    <table class="table table-bordered">
       <thead>
         <tr>
           <th>Data Compra</th>
@@ -25,10 +31,14 @@
         </tr>
       </thead>
       <tbody>
-        
+
       </tbody>
     </table>
   </div>
 
 
 </div>
+
+
+
+
