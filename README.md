@@ -1,27 +1,57 @@
-# MoneyControlAngular
+# Money Control
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.5.
+Money Control é um projeto de front-end desenvolvido para auxiliar no acompanhamento e controle de gastos financeiros realizados com o cartão de crédito da Nubank. Esta aplicação permite aos usuários visualizarem e gerenciarem seus gastos de maneira intuitiva e eficiente.
 
-## Development server
+Link de acesso: [Money Control](https://money-control-angular.vercel.app/building)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Funcionalidades Principais
 
-## Code scaffolding
+- **Visão Geral dos Gastos:** Apresenta um resumo dos gastos por categoria, proporcionando uma visão geral das despesas.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Detalhes das Transações:** Permite visualizar detalhes de cada transação, incluindo data, valor, categoria e descrição.
 
-## Build
+- **Gráficos e Estatísticas:** Apresenta gráficos e estatísticas para uma melhor compreensão dos padrões de gastos.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Filtros e Ordenação:** Oferece a capacidade de filtrar e ordenar transações por data, valor e categoria.
 
-## Running unit tests
+## Tecnologias Utilizadas
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Angular:** Framework utilizado para o desenvolvimento do front-end da aplicação, oferecendo uma estrutura robusta e escalável para a criação de interfaces de usuário dinâmicas.
+  - **Módulos Angular Utilizados até o momento:**
+    - `@angular/animations`: Suporte para animações na interface.
+    - `@angular/cdk`: Conjunto de ferramentas para desenvolvimento de componentes.
+    - `@angular/common`, `@angular/compiler`, `@angular/core`, `@angular/forms`, `@angular/platform-browser`, `@angular/platform-browser-dynamic`, `@angular/router`: Pacotes essenciais para o funcionamento do Angular.
+    - `@angular/material`: Biblioteca de componentes de interface do usuário baseados em Material Design.
 
-## Running end-to-end tests
+- **Bootstrap:** Framework front-end para estilização e responsividade, proporcionando um layout mais amigável e moderno para a aplicação.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- **TypeScript:** Linguagem de programação utilizada no desenvolvimento Angular, oferecendo recursos de tipagem estática e facilitando a manutenção do código.
 
-## Further help
+## Scripts NPM
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- **`start`:** Inicia o servidor de desenvolvimento para a aplicação Angular.
+- **`build`:** Compila a aplicação para produção.
+- **`watch`:** Compila a aplicação em modo de observação para desenvolvimento contínuo.
+- **`test`:** Executa testes unitários na aplicação.
+
+## Como Utilizar
+
+1. **Clone o Repositório:**
+
+
+git clone https://github.com/Ma7heus/Money-Control-Angular.git
+
+2. **Abra o Arquivo `index.html`:** Execute o arquivo `index.html` em seu navegador para acessar a aplicação.
+
+## Próximos Passos
+
+Acompanhe a contrução pelas [issues](https://github.com/Ma7heus/Money-Control-Angular/issues) do projeto.
+
+## Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir um *Pull Request* para sugerir melhorias, correções de bugs ou novas funcionalidades.
+
+## Contato
+
+Se precisar de ajuda ou tiver alguma dúvida, entre em contato via [e-mail](mailto:biasimatheushenrique40@gmail.com).
+
