@@ -1,50 +1,76 @@
-<form class="d-flex flex-column align-items-center">
-  <div class="container-head mb-4">
-    <span></span>
-    <mat-toolbar class="titulo">
-      <span>{{ title }}</span>
-    </mat-toolbar>
-  </div>
+<mat-card>
+  <mat-card-header>
+    <div class="row align-items-center">
+      <div class="col-md-9">
+        <mat-card-title>{{ title }}</mat-card-title>
+      </div>
 
-  <div class="container-dados">
-    <div class="input-group mb-3">
-      <input
-        type="file"
-        (change)="onFileChange($event)"
-        class="form-control"
-        id="inputGroupFile"
-        aria-describedby="inputGroupFileAddon04"
-        aria-label="Upload">
+      <div class="col-md-2">
+        <button
+          (click)="openSnackBar('Upload Feito com Sucesso', 'Fechar')"
+          mat-mini-fab
+          color="primary"
+        >
+          <mat-icon>add </mat-icon>
+        </button>
+      </div>
     </div>
+  </mat-card-header>
 
+  <mat-divider></mat-divider>
+
+  <mat-card-content>
     <div class="row">
-      <div class="col-sm-6 mb-3">
-        <button mat-raised-button color="primary" (click)="showData($event)">Show Data</button>
-      </div>
-      <div class="col-sm-6 mb-3">
-        <button mat-raised-button color="primary" type="button" (click)="onUpload()">Upload</button>
-      </div>
+      <mat-form-field
+        style="margin-top: 2ch; background-color: white"
+        appearance="fill"
+      >
+        <input matInput placeholder="Digite para Filtrar" />
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
     </div>
 
-    <div>
-      <table class="table table-bordered">
-        <thead>
-        <tr>
-          <th>Data Compra</th>
-          <th>Tipo</th>
-          <th>Nome</th>
-          <th>Valor</th>
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+          <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+        </ng-container>
+
+        <!-- Progress Column -->
+        <ng-container matColumnDef="progress">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Progress</th>
+          <td mat-cell *matCellDef="let row">{{ row.progress }}%</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+          <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+        </ng-container>
+
+        <!-- Fruit Column -->
+        <ng-container matColumnDef="fruit">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Fruit</th>
+          <td mat-cell *matCellDef="let row">{{ row.fruit }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter</td>
         </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let item of dataList">
-          <td>{{ item.data }}</td>
-          <td>{{ item.categoria }}</td>
-          <td>{{ item.descricao }}</td>
-          <td>{{ item.valor }}</td>
-        </tr>
-        </tbody>
       </table>
+
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page of users"
+      ></mat-paginator>
     </div>
-  </div>
-</form>
+  </mat-card-content>
+
+  <mat-card-actions> </mat-card-actions>
+</mat-card>

@@ -7,10 +7,6 @@
   color: white;
 }
 
-.span{
-  padding: 38px;
-}
-
 .active{
   border-left: 5px solid rgb(32, 17, 17);
   background-color: rgb(228, 223, 233);
@@ -18,14 +14,9 @@
   transition: 200ms ease-in;
 }
 
-.custom-link {
-  display: b;          /* Cria um flex container */
-  align-items: center;    /* Centraliza os itens verticalmente */
-}
 
-.custom-link mat-icon {
-  margin-right: 10px;      /* Adiciona espaço entre o ícone e o texto */
-}
+
+
 
 
 

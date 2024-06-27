@@ -27,3 +27,7 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('.content span')?.textContent).toContain('money-control-angular app is running!');
   });
 });
+function expect(app: any) {
+  throw new Error('Function not implemented.');
+}
+

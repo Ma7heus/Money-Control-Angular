@@ -1,21 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSort } from '@angular/material/sort';
 
+export interface UserData {
+  id: string;
+  name: string;
+  progress: string;
+  fruit: string;
+}
 
 @Component({
   selector: 'my-importacao',
   templateUrl: './importacao.component.html',
   styleUrls: ['./importacao.component.css']
 })
-export class ImportacaoComponent implements OnInit {
-  title = 'IMPORTAÇÃO DE ARQUIVOS';
+export class ImportacaoComponent implements OnInit, AfterViewInit {
+  title = 'Arquivos e Extratos';
   dados: string[] = [];
   dataList: any[] = [];
 
-  constructor(private _snackBar: MatSnackBar) { }
+  dataSource = [];
+  displayedColumns: string[] = ['id', 'progress', 'name', 'fruit'];
+
+  constructor(private _snackBar: MatSnackBar) {
+
+   }
 
   ngOnInit() {
   }
+  
+  ngAfterViewInit(): void {
+    
+  }
+
 
   // Handle file change event
   onFileChange(event: Event) {
@@ -47,6 +65,8 @@ export class ImportacaoComponent implements OnInit {
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
       duration: 2000,
+      horizontalPosition: 'right',
+      verticalPosition: 'top'
     });
   }
 
