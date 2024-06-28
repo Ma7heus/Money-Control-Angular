@@ -9,9 +9,11 @@ import { BuildingComponent } from './componentes/building/building.component';
 import { CategoriaComponent } from './componentes/categoria/categoria.component';
 import { HistoricoComponent } from './componentes/historico/historico.component';
 import { ImportacaoComponent } from './componentes/importacao/importacao.component';
+import { McDialogComponent } from './core/common/mc-dialog/mc-dialog.component';
 
 import { MatIconModule} from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
 import { AppRoutingModule } from './app-routing.module';
 import { MatInputModule } from '@angular/material/input';
@@ -25,8 +27,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSortModule } from '@angular/material/sort';
-
 
 
 @NgModule({
@@ -57,7 +57,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatPaginatorModule,
     MatSnackBarModule,
-    MatSortModule
+    MatSortModule,
+    McDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

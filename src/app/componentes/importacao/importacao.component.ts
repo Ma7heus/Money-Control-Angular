@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
+import { McDialogComponent } from 'src/app/core/common/mc-dialog/mc-dialog.component';
 
 export interface UserData {
   id: string;
@@ -13,7 +15,7 @@ export interface UserData {
 @Component({
   selector: 'my-importacao',
   templateUrl: './importacao.component.html',
-  styleUrls: ['./importacao.component.css']
+  styleUrls: ['./importacao.component.css'],
 })
 export class ImportacaoComponent implements OnInit, AfterViewInit {
   title = 'Arquivos e Extratos';
@@ -23,8 +25,9 @@ export class ImportacaoComponent implements OnInit, AfterViewInit {
   dataSource = [];
   displayedColumns: string[] = ['id', 'progress', 'name', 'fruit'];
 
-  constructor(private _snackBar: MatSnackBar) {
-
+  constructor(
+    private _snackBar: MatSnackBar,
+    public dialog: MatDialog) {
    }
 
   ngOnInit() {
@@ -33,8 +36,6 @@ export class ImportacaoComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     
   }
-
-
   // Handle file change event
   onFileChange(event: Event) {
     const target = event.target as HTMLInputElement;
@@ -68,6 +69,13 @@ export class ImportacaoComponent implements OnInit, AfterViewInit {
       horizontalPosition: 'right',
       verticalPosition: 'top'
     });
+  }
+
+  openDialogNovoArquivo() {
+    this.dialog.open(McDialogComponent, {
+      disableClose: true,
+    });
+
   }
 
   convertStringListToObjectList(stringList: string[]): any[] {
