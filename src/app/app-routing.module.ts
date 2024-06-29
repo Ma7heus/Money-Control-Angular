@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './componentes/home/home.component';
-import { CategoriaComponent } from './componentes/categoria/categoria.component';
-import { ImportacaoComponent } from './componentes/importacao/importacao.component';
-import { HistoricoComponent } from './componentes/historico/historico.component';
-import { BuildingComponent } from './componentes/building/building.component';
+import { HomeComponent } from './views/home/home.component';
+import { CategoriaComponent } from './views/categoria/categoria.component';
+import { ImportacaoComponent } from './views/importacao/importacao.component';
+import { HistoricoComponent } from './views/historico/historico.component';
+import { BuildingComponent } from './views/building/building.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'building', pathMatch: 'full' },

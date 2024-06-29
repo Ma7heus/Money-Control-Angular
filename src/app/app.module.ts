@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './componentes/home/home.component';
-import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { HomeComponent } from './views/home/home.component';
+import { NavbarComponent } from './views/navbar/navbar.component';
 import { TabelaComponent } from './core/common/components/tabela/tabela.component';
-import { BuildingComponent } from './componentes/building/building.component';
-import { CategoriaComponent } from './componentes/categoria/categoria.component';
-import { HistoricoComponent } from './componentes/historico/historico.component';
-import { ImportacaoComponent } from './componentes/importacao/importacao.component';
+import { BuildingComponent } from './views/building/building.component';
+import { CategoriaComponent } from './views/categoria/categoria.component';
+import { HistoricoComponent } from './views/historico/historico.component';
+import { ImportacaoComponent } from './views/importacao/importacao.component';
 import { McDialogComponent } from './core/common/components/mc-dialog/mc-dialog.component';
 
 import { MatIconModule } from '@angular/material/icon';
