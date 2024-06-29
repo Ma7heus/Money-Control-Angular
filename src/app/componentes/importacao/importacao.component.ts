@@ -3,7 +3,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
-import { McDialogComponent } from 'src/app/core/common/mc-dialog/mc-dialog.component';
+import { McDialogComponent } from 'src/app/core/common/components/mc-dialog/mc-dialog.component';
 
 export interface UserData {
   id: string;
@@ -28,13 +28,13 @@ export class ImportacaoComponent implements OnInit, AfterViewInit {
   constructor(
     private _snackBar: MatSnackBar,
     public dialog: MatDialog) {
-   }
+  }
 
   ngOnInit() {
   }
-  
+
   ngAfterViewInit(): void {
-    
+
   }
   // Handle file change event
   onFileChange(event: Event) {
