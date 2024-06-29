@@ -18,10 +18,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatDatepickerModule
   ],
   templateUrl: './mc-dialog.component.html',
-  styleUrl: './mc-dialog.component.css'
+  styleUrls: ['./mc-dialog.component.css']
 })
 export class McDialogComponent {
-  constructor(public dialogRef: MatDialogRef<McDialogComponent>) {}
+  constructor(public dialogRef: MatDialogRef<McDialogComponent>) { }
 
   salvar() {
     this.dialogRef.close();

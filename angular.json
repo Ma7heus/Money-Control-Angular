@@ -64,18 +64,21 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "money-control-angular:build:production"
+              "browserTarget": "money-control-angular:build:production"
             },
             "development": {
-              "buildTarget": "money-control-angular:build:development"
+              "browserTarget": "money-control-angular:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "browserTarget": "money-control-angular:build"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "money-control-angular:build"
+            "browserTarget": "money-control-angular:build"
           }
         },
         "test": {
