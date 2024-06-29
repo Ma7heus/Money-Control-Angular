@@ -4,6 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-mc-dialog',
@@ -13,7 +14,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDatepickerModule
   ],
   templateUrl: './mc-dialog.component.html',
   styleUrl: './mc-dialog.component.css'

@@ -1,3 +1,18 @@
+@media (max-width: 599px) {
+  .sidenav-container {
+      height: calc(100% - var(--mat-toolbar-mobile-height));
+  }
+}
+
+@media (min-width: 600px) {
+  .sidenav-container {
+      height: calc(100% - var(--mat-toolbar-standard-height));
+  }
+}
+
+mat-toolbar {
+  border-bottom: 1px solid #bbb;
+}
 .example-spacer {
   flex: 1 1 auto;
 }
