@@ -1,8 +1,10 @@
+import { ImportacaoService } from './../../core/common/services/importacao.service';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
+import { ActivatedRoute, Router } from '@angular/router';
 import { McDialogComponent } from 'src/app/core/common/components/mc-dialog/mc-dialog.component';
 
 export interface UserData {
@@ -26,8 +28,12 @@ export class ImportacaoComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['id', 'progress', 'name', 'fruit'];
 
   constructor(
+    private router: Router,
+    public dialog: MatDialog,
+    private route: ActivatedRoute,
     private _snackBar: MatSnackBar,
-    public dialog: MatDialog) {
+    private importacaoService: ImportacaoService
+  ) {
   }
 
   ngOnInit() {
@@ -36,6 +42,15 @@ export class ImportacaoComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
 
   }
+
+  goForm(id?: number) {
+    if(id) {
+      this.router.navigate([id], {relativeTo: this.route});
+    } else {
+      this.router.navigate(['novo'], {relativeTo: this.route});
+    }
+  }
+
   // Handle file change event
   onFileChange(event: Event) {
     const target = event.target as HTMLInputElement;
