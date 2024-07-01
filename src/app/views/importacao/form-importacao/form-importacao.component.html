@@ -2,7 +2,7 @@
   <mat-card-header>
     <mat-card-title>Importação de Extratos Bancários</mat-card-title>
     <span class="spacer"></span>
-    <button mat-mini-fab color="primary" matTooltip="Voltar" (click)="goList()">
+    <button mat-mini-fab color="primary" tooltip="Voltar" (click)="goList()">
       <mat-icon style="transform: rotate(90deg)">u_turn_left</mat-icon>
     </button>
   </mat-card-header>
@@ -14,11 +14,9 @@
       <div class="col-md-6">
         <mat-form-field appearance="fill">
           <mat-label>Instituição</mat-label>
-          <mat-select>
-            <mat-option
-              *ngFor="let instituicao of intituicoes"
-              [value]="instituicao.id"
-              >{{ instituicao.nome }}
+          <mat-select [(value)]="arquivo.instituicao">
+            <mat-option *ngFor="let instituicao of intituicoes" [value]="instituicao.id">
+              {{ instituicao.nome }}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -54,6 +52,6 @@
   </mat-card-content>
 
   <mat-card-actions>
-    <button mat-flat-button color="primary">Upload</button>
+    <button (click)="uploadArquivo()" mat-flat-button color="primary">Upload</button>
   </mat-card-actions>
 </mat-card>

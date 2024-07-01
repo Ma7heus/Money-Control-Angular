@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ArquivoDTO } from 'src/app/core/common/dtos/arquivo.dto';
 import { InstituicaoBancariaDTO } from 'src/app/core/common/dtos/instituicao-bancaria.dto';
 import { ImportacaoService } from 'src/app/core/common/services/importacao.service';
 
@@ -30,15 +31,18 @@ import { ImportacaoService } from 'src/app/core/common/services/importacao.servi
   styleUrl: './form-importacao.component.css'
 })
 export class FormImportacaoComponent {
+
   @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
 
+  arquivo: ArquivoDTO = new ArquivoDTO();
+
   intituicoes: InstituicaoBancariaDTO[] = [
-    {id: 1, nome: "NuBank"},
-    {id: 2, nome: "Inter"},
-    {id: 3, nome: "PayPal"},
-    {id: 4, nome: "Avenue"},
-    {id: 5, nome: "Sicoob"},
-    {id: 6, nome: "Rico"},
+    { id: 1, nome: "NuBank" },
+    { id: 2, nome: "Inter" },
+    { id: 3, nome: "PayPal" },
+    { id: 4, nome: "Avenue" },
+    { id: 5, nome: "Sicoob" },
+    { id: 6, nome: "Rico" },
   ];
 
   constructor(
@@ -48,11 +52,15 @@ export class FormImportacaoComponent {
   ) { }
 
   goList() {
-    this.router.navigate(['../'], {relativeTo: this.route});
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 
   onFileSelected(event: any) {
 
+  }
+
+  uploadArquivo() {
+    console.log(this.arquivo);
   }
 
 }
