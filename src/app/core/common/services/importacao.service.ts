@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
+import { AbstractService } from './abstract-service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ImportacaoService {
+export class ImportacaoService extends AbstractService {
 
-  constructor() { }
+  constructor() {
+    const url = 'importacao';
+    super(url);
+  }
 }

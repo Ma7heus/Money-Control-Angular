@@ -1,1 +1,68 @@
-<p>form-importacao works!</p>
+<mat-card>
+  <mat-card-header class="justify-content-between">
+    <div class="d-flex align-items-center">
+      <mat-card-title>Importação de Extratos Bancários</mat-card-title>
+      <div class="justify-content-between">
+        <button
+          matTooltip="Voltar"
+          mat-mini-fab
+          color="primary"
+          (click)="goList()"
+          style="margin: 5px"
+        >
+            <mat-icon style="transform: rotate(90deg)">u_turn_left</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-card-header>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-content>
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field appearance="fill">
+          <mat-label>Instituição</mat-label>
+          <mat-select>
+            <mat-option
+              *ngFor="let instituicao of intituicoes"
+              [value]="instituicao.id"
+              >{{ instituicao.nome }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Data Upload</mat-label>
+          <input disabled matInput [matDatepicker]="picker" />
+          <mat-hint>MM/DD/YYYY </mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Arquivo CSV</mat-label>
+        <input
+          matInput
+          (change)="onFileSelected($event)"
+          hidden
+          accept=".csv"
+        />
+        <mat-icon matSuffix>cloud_upload</mat-icon>
+      </mat-form-field>
+      <!-- PEGAR COMPONENTE FEITO NA ALFA -->
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-flat-button color="primary">Upload</button>
+  </mat-card-actions>
+</mat-card>
