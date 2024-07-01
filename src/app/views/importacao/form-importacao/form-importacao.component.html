@@ -1,19 +1,10 @@
 <mat-card>
-  <mat-card-header class="justify-content-between">
-    <div class="d-flex align-items-center">
-      <mat-card-title>Importação de Extratos Bancários</mat-card-title>
-      <div class="justify-content-between">
-        <button
-          matTooltip="Voltar"
-          mat-mini-fab
-          color="primary"
-          (click)="goList()"
-          style="margin: 5px"
-        >
-            <mat-icon style="transform: rotate(90deg)">u_turn_left</mat-icon>
-        </button>
-      </div>
-    </div>
+  <mat-card-header>
+    <mat-card-title>Importação de Extratos Bancários</mat-card-title>
+    <span class="spacer"></span>
+    <button mat-mini-fab color="primary" matTooltip="Voltar" (click)="goList()">
+      <mat-icon style="transform: rotate(90deg)">u_turn_left</mat-icon>
+    </button>
   </mat-card-header>
 
   <mat-divider></mat-divider>
