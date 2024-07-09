@@ -4,7 +4,8 @@
       mat-icon-button
       class="example-icon"
       aria-label="Example icon-button with menu icon"
-      (click)="sidenav.toggle()">
+      (click)="sidenav.toggle()"
+    >
       <mat-icon>menu</mat-icon>
     </button>
     <span>NUcontrol App</span>
@@ -12,46 +13,88 @@
     <button
       mat-icon-button
       class="example-icon favorite-icon"
-      aria-label="Example icon-button with heart icon">
+      aria-label="Example icon-button with heart icon"
+    >
       <mat-icon>person</mat-icon>
     </button>
     <button
       mat-icon-button
-      aria-label="Example icon button with a vertical three dot icon" >
+      aria-label="Example icon button with a vertical three dot icon"
+    >
       <mat-icon>more_vert</mat-icon>
     </button>
-    <button
-      mat-icon-button aria-label="Example icon button with a home icon">
+    <button mat-icon-button aria-label="Example icon button with a home icon">
       <mat-icon>logout</mat-icon>
     </button>
   </mat-toolbar>
 
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #sidenav opened="true" mode="side">
-    <mat-nav-list>
-      <a routerLink="home" routerLinkActive="active" mat-list-item class="custom-link">
-        <mat-icon>home</mat-icon>
-        <span>Home</span>
-      </a>
-      <a routerLink="category" routerLinkActive="active" mat-list-item class="custom-link">
-        <mat-icon>category</mat-icon>
-        <span>Category</span>
-      </a>
-      <a routerLink="import" routerLinkActive="active" mat-list-item class="custom-link">
-        <mat-icon>publish</mat-icon>
-        <span>Import</span>
-      </a>
-      <a routerLink="history" routerLinkActive="active" mat-list-item class="custom-link">
-        <mat-icon>history</mat-icon>
-        <span>History</span>
-      </a>
-    </mat-nav-list>
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav opened="true" mode="side">
+      <mat-nav-list>
+        <a
+          routerLink="home"
+          routerLinkActive="active"
+          mat-list-item
+          class="custom-link"
+        >
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+        </a>
+        <a
+          routerLink="category"
+          routerLinkActive="active"
+          mat-list-item
+          class="custom-link"
+        >
+          <mat-icon>category</mat-icon>
+          <span>Category</span>
+        </a>
+        <a
+          routerLink="import"
+          routerLinkActive="active"
+          mat-list-item
+          class="custom-link"
+        >
+          <mat-icon>publish</mat-icon>
+          <span>Import</span>
+        </a>
+        <a
+          routerLink="history"
+          routerLinkActive="active"
+          mat-list-item
+          class="custom-link"
+        >
+          <mat-icon>history</mat-icon>
+          <span>History</span>
+        </a>
+      </mat-nav-list>
 
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <div style="height: 90vh;">
-      <router-outlet>
-      </router-outlet>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+      <!-- <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+              <mat-icon>add_circle</mat-icon>
+            Cadastros
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <a routerLink="category" routerLinkActive="active" mat-list-item class="custom-link">
+          <mat-icon>category</mat-icon>
+          <span>Category</span>
+        </a>
+        <a routerLink="import" routerLinkActive="active" mat-list-item class="custom-link">
+          <mat-icon>publish</mat-icon>
+          <span>Import</span>
+        </a>
+
+      </mat-expansion-panel>
+
+    </mat-accordion> -->
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div style="height: 90vh">
+        <router-outlet> </router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</header>

@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
-import { NavbarComponent } from './views/navbar/navbar.component';
 import { TabelaComponent } from './core/common/components/tabela/tabela.component';
 import { BuildingComponent } from './views/building/building.component';
 import { CategoriaComponent } from './views/categoria/categoria.component';
@@ -27,6 +26,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarComponent } from './views/navbar/navbar.component';
+import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -42,6 +44,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -58,8 +61,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatPaginatorModule,
     MatSnackBarModule,
     MatSortModule,
-    McDialogComponent
-
+    McDialogComponent,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

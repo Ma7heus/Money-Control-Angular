@@ -15,23 +15,13 @@
         <mat-form-field appearance="fill">
           <mat-label>Instituição</mat-label>
           <mat-select [(value)]="arquivo.instituicao">
-            <mat-option *ngFor="let instituicao of intituicoes" [value]="instituicao.id">
+            <mat-option
+              *ngFor="let instituicao of intituicoes"
+              [value]="instituicao.id"
+            >
               {{ instituicao.nome }}
             </mat-option>
           </mat-select>
-        </mat-form-field>
-      </div>
-
-      <div class="col-md-3">
-        <mat-form-field appearance="outline">
-          <mat-label>Data Upload</mat-label>
-          <input disabled matInput [matDatepicker]="picker" />
-          <mat-hint>MM/DD/YYYY </mat-hint>
-          <mat-datepicker-toggle
-            matIconSuffix
-            [for]="picker"
-          ></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
       </div>
     </div>
@@ -49,9 +39,13 @@
       </mat-form-field>
       <!-- PEGAR COMPONENTE FEITO NA ALFA -->
     </div>
+
+    <div class="row"></div>
   </mat-card-content>
 
   <mat-card-actions>
-    <button (click)="uploadArquivo()" mat-flat-button color="primary">Upload</button>
+    <button (click)="uploadArquivo()" mat-flat-button color="primary">
+      Upload
+    </button>
   </mat-card-actions>
 </mat-card>

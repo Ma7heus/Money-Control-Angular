@@ -1,0 +1,8 @@
+<!-- date-time-picker.component.html -->
+<button mat-icon-button (click)="openDialog()">
+  <mat-icon>calendar_today</mat-icon>
+</button>
+
+<p>
+  Selected Date and Time: {{ selectedDateTime | date : "yyyy-MM-ddTHH:mm:ss" }}
+</p>

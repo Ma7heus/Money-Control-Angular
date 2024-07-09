@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ArquivoDTO } from 'src/app/core/common/dtos/arquivo.dto';
 import { InstituicaoBancariaDTO } from 'src/app/core/common/dtos/instituicao-bancaria.dto';
 import { ImportacaoService } from 'src/app/core/common/services/importacao.service';
+
 
 @Component({
   selector: 'app-form-importacao',
@@ -24,7 +24,6 @@ import { ImportacaoService } from 'src/app/core/common/services/importacao.servi
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
-    MatDatepickerModule,
     CommonModule
   ],
   templateUrl: './form-importacao.component.html',

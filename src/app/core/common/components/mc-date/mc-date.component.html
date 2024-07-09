@@ -1,0 +1,18 @@
+<mat-form-field appearance="fill">
+  <mat-label>Enter Date and Time</mat-label>
+  <input
+    matInput
+    [value]="maskedInput"
+    (input)="onInputChange($event)"
+    maxlength="19"
+  />
+  <input matInput [matDatepicker]="picker" formControlName="date" />
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+  <!-- <button mat-icon-button matSuffix (click)="onIconClick()">
+    <mat-icon>calendar_today</mat-icon>
+  </button> -->
+  <mat-hint>Ex: 12/31/2020 23:59:59</mat-hint>
+</mat-form-field>
+
+<p>Typed Value: {{ typedValue }}</p>
