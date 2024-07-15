@@ -31,7 +31,7 @@
 .custom-link:hover{
   background-color: black;
   color: white;
-   /* transition: 100ms ease-in; */
+   transition: 100ms ease-in;
 }
 
 .active{
