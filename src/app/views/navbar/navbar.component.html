@@ -34,63 +34,24 @@
         <a
           routerLink="home"
           routerLinkActive="active"
-          mat-list-item
+          mat-icon-button
           class="custom-link"
         >
           <mat-icon>home</mat-icon>
-          <span>Home</span>
-        </a>
-        <a
-          routerLink="category"
-          routerLinkActive="active"
-          mat-list-item
-          class="custom-link"
-        >
-          <mat-icon>category</mat-icon>
-          <span>Category</span>
+          home
         </a>
         <a
           routerLink="import"
           routerLinkActive="active"
-          mat-list-item
+          mat-icon-button
           class="custom-link"
         >
           <mat-icon>publish</mat-icon>
           <span>Import</span>
-        </a>
-        <a
-          routerLink="history"
-          routerLinkActive="active"
-          mat-list-item
-          class="custom-link"
-        >
-          <mat-icon>history</mat-icon>
-          <span>History</span>
         </a>
       </mat-nav-list>
-
-      <!-- <mat-accordion class="example-headers-align" multi>
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-              <mat-icon>add_circle</mat-icon>
-            Cadastros
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-
-        <a routerLink="category" routerLinkActive="active" mat-list-item class="custom-link">
-          <mat-icon>category</mat-icon>
-          <span>Category</span>
-        </a>
-        <a routerLink="import" routerLinkActive="active" mat-list-item class="custom-link">
-          <mat-icon>publish</mat-icon>
-          <span>Import</span>
-        </a>
-
-      </mat-expansion-panel>
-
-    </mat-accordion> -->
     </mat-sidenav>
+
     <mat-sidenav-content>
       <div style="height: 90vh">
         <router-outlet> </router-outlet>
