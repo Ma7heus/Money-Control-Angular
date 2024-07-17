@@ -29,6 +29,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './views/navbar/navbar.component';
 import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
 import { CommonModule } from '@angular/common';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -62,7 +64,9 @@ import { CommonModule } from '@angular/common';
     MatSnackBarModule,
     MatSortModule,
     McDialogComponent,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSelectModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

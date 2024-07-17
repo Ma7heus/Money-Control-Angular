@@ -1,17 +1,21 @@
 import { ImportacaoService } from './../../core/common/services/importacao.service';
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute, Router } from '@angular/router';
 import { McDialogComponent } from 'src/app/core/common/components/mc-dialog/mc-dialog.component';
+import { ArquivoDTO } from 'src/app/core/common/dtos/arquivo.dto';
+import { InstituicaoBancariaDTO } from 'src/app/core/common/dtos/instituicao-bancaria.dto';
+import { AlertService } from 'src/app/core/common/services/alert.service';
 
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  fruit: string;
+export interface DespesaDTO {
+  id?: number;
+  data: string;
+  categoria: string;
+  descricao: string;
+  valor: Number;
 }
 
 @Component({
@@ -20,21 +24,34 @@ export interface UserData {
   styleUrls: ['./importacao.component.css'],
 })
 export class ImportacaoComponent implements OnInit, AfterViewInit {
+
   title = 'Arquivos e Extratos';
-  dados: string[] = [];
+  @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
+
   dataList: any[] = [];
 
   dataSource = [];
   displayedColumns: string[] = ['id', 'progress', 'name', 'fruit'];
 
+  fileDto: ArquivoDTO = new ArquivoDTO();
+  dadosArquivoExtraidos!: DespesaDTO[];
+
+  intituicoes: InstituicaoBancariaDTO[] = [
+    { id: 1, nome: "NuBank" },
+    { id: 2, nome: "Inter" },
+    { id: 3, nome: "PayPal" },
+    { id: 4, nome: "Avenue" },
+    { id: 5, nome: "Sicoob" },
+    { id: 6, nome: "Rico" },
+  ];
+
   constructor(
     private router: Router,
     public dialog: MatDialog,
     private route: ActivatedRoute,
-    private _snackBar: MatSnackBar,
-    private importacaoService: ImportacaoService
-  ) {
-  }
+    private alert: AlertService,
+    private importacaoService: ImportacaoService,
+  ) { }
 
   ngOnInit() {
   }
@@ -42,55 +59,38 @@ export class ImportacaoComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
 
   }
-
-  goForm(id?: number) {
-    if(id) {
-      this.router.navigate([id], {relativeTo: this.route});
-    } else {
-      this.router.navigate(['novo'], {relativeTo: this.route});
-    }
-  }
-
   // Handle file change event
   onFileChange(event: Event) {
     const target = event.target as HTMLInputElement;
     const file: File = (target.files as FileList)[0];
+
+    if (file.type !== 'text/csv') {
+      this.alert.showError('Arquivo Inválido, precisa ser tipo CSV');
+      return;
+    }
     const reader: FileReader = new FileReader();
+    this.fileDto.nome = file.name;
+    this.fileDto.dataImportacao = new Date();
 
     reader.onloadend = () => {
       const fileContent: string = reader.result as string;
       const dataList = fileContent.split('\n');
-      this.dados = dataList;
+      const data = this.convertStringListToObjectList(dataList);
+      this.dadosArquivoExtraidos = data;
+
+      console.log(data);
+
     };
     reader.readAsText(file);
   }
 
-  onUpload() {
-    this.openSnackBar('Upload Feito com Sucesso', 'Fechar');
-  }
-
-  showData(event: Event) {
-    event.preventDefault();
-    this.dataList = this.convertStringListToObjectList(this.dados);
-  }
-
-  consultarDados(key: string) {
-    console.log(localStorage.getItem(key));
-  }
-
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action, {
-      duration: 2000,
-      horizontalPosition: 'right',
-      verticalPosition: 'top'
-    });
-  }
-
-  openDialogNovoArquivo() {
-    this.dialog.open(McDialogComponent, {
-      disableClose: true,
-    });
-
+  uploadArquivo() {
+    if (!this.dadosArquivoExtraidos) {
+      this.alert.showError('Nenhum arquivo selecionado');
+      return;
+    }
+    console.log(this.dadosArquivoExtraidos);
+    this.alert.showSuccess('Upload Feito com Sucesso');
   }
 
   convertStringListToObjectList(stringList: string[]): any[] {
@@ -98,15 +98,17 @@ export class ImportacaoComponent implements OnInit, AfterViewInit {
 
     stringList.forEach((row) => {
       const fields = row.split(',');
-      const obj = {
+      const linha: DespesaDTO = {
         data: fields[0],
         categoria: fields[1],
         descricao: fields[2],
-        valor: fields[3]
+        valor: new Number(fields[3]),
       };
-      objectList.push(obj);
+
+      objectList.push(linha);
     });
 
     return objectList;
   }
+
 }

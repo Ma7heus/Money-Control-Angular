@@ -5,7 +5,6 @@ import { CategoriaComponent } from './views/categoria/categoria.component';
 import { ImportacaoComponent } from './views/importacao/importacao.component';
 import { HistoricoComponent } from './views/historico/historico.component';
 import { BuildingComponent } from './views/building/building.component';
-import { FormImportacaoComponent } from './views/importacao/form-importacao/form-importacao.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'building', pathMatch: 'full' },
@@ -17,10 +16,6 @@ const routes: Routes = [
       {
         path: '',
         component: ImportacaoComponent
-      },
-      {
-        path: ':id',
-        component: FormImportacaoComponent
       },
     ]
   },

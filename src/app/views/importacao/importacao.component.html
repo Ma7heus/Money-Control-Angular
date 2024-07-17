@@ -1,17 +1,60 @@
 <mat-card>
   <mat-card-header>
     <div class="row align-items-center">
-      <div class="col-md-9">
-        <mat-card-title>{{ title }}</mat-card-title>
-      </div>
-
-      <div class="col-md-2">
-        <button (click)="goForm()" mat-mini-fab color="primary">
-          <mat-icon>add </mat-icon>
-        </button>
-      </div>
+      <mat-card-title>{{ title }}</mat-card-title>
     </div>
   </mat-card-header>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-content>
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field appearance="fill">
+          <mat-label>Instituição</mat-label>
+          <mat-select required [(value)]="fileDto.instituicao">
+            <mat-option
+              *ngFor="let instituicao of intituicoes"
+              [value]="instituicao.id"
+            >
+              {{ instituicao.nome }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Selecione um arquivo</mat-label>
+          <input
+            matInput
+            type="text"
+            (click)="fileInput.click()"
+            [(ngModel)]="fileDto.nome"
+            (drop)="onFileChange($event)"
+          />
+          <input
+            id="fileInput"
+            hidden
+            type="file"
+            accept=".csv"
+            #fileInput
+            (change)="onFileChange($event)"
+          />
+          <mat-error>
+            Formato de arquivo incompatível, favor enviar CSV.
+          </mat-error>
+          <mat-icon matSuffix>cloud_upload</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button (click)="uploadArquivo()" mat-flat-button color="primary">
+      Upload
+    </button>
+  </mat-card-actions>
 
   <mat-divider></mat-divider>
 
