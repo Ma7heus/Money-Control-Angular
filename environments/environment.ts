@@ -1,5 +1,5 @@
 export const environment = {
 	production: false,
-	homologation: false,
+	homologation: true,
 	urlBase: 'http://localhost:3000/',
 };

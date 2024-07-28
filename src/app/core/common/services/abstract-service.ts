@@ -4,13 +4,16 @@ import { Inject, Injectable } from "@angular/core";
 import { AbstractDTO } from "../dtos/abstract.dto";
 import { PagedParamsDTO } from "../dtos/paged-params.dto";
 import { PagedResultDTO } from "../dtos/page-result.dto";
+import { environment } from "../../../../../environments/environment";
+
+const urlApi = environment.urlBase;
 
 @Injectable({
   providedIn: 'root'
 })
 export abstract class AbstractService<T extends AbstractDTO> {
 
-  protected baseUrl: string = 'http://localhost:3000/';
+  protected baseUrl?: string = urlApi;
 
   constructor(
     protected http: HttpClient,
@@ -46,7 +49,7 @@ export abstract class AbstractService<T extends AbstractDTO> {
   }
 
   protected getBaseUrl(): string {
-    return this.baseUrl;
+    return this.baseUrl || '';
   }
 
 }
