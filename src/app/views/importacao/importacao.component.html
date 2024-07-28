@@ -69,31 +69,38 @@
       </mat-form-field>
     </div>
 
-    <div class="mat-elevation-z8">
+    <div class="mat-elevation-z8 tableClass">
       <table mat-table [dataSource]="dataSource" matSort>
         <!-- ID Column -->
-        <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
-          <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+        <ng-container matColumnDef="idExtrato">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>identificador</th>
+          <td mat-cell *matCellDef="let row">{{ row.idExtrato }}</td>
         </ng-container>
 
         <!-- Progress Column -->
-        <ng-container matColumnDef="progress">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Progress</th>
-          <td mat-cell *matCellDef="let row">{{ row.progress }}%</td>
+        <ng-container matColumnDef="instituicao">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Intituição</th>
+          <td mat-cell *matCellDef="let row">{{ row.instituicao }}</td>
         </ng-container>
 
         <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-          <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+        <ng-container matColumnDef="dataCriacao">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Data Importação</th>
+          <td mat-cell *matCellDef="let row">{{ row.dataCriacao | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
         </ng-container>
 
         <!-- Fruit Column -->
-        <ng-container matColumnDef="fruit">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Fruit</th>
-          <td mat-cell *matCellDef="let row">{{ row.fruit }}</td>
-        </ng-container>
+        <ng-container matColumnDef="acoes" >
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="acoes">Ações</th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-icon-button matTooltip="Ver todas transaçoes" color="primary" (click)="verTransacoes(row)">
+              <mat-icon>article</mat-icon>
+            </button>
+            <button matTooltip="Deletar Extrato" mat-icon-button color="warn" (click)="deletarExtrato(row)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>icon>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>

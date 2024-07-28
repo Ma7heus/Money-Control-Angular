@@ -1,12 +1,15 @@
+import { ExtratoServiceService } from './../../core/common/services/extrato-service.service';
 import { ImportacaoService } from './../../core/common/services/importacao.service';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { McDialogComponent } from 'src/app/core/common/components/mc-dialog/mc-dialog.component';
 import { ArquivoDTO } from 'src/app/core/common/dtos/arquivo.dto';
+import { ExtratoDTO } from 'src/app/core/common/dtos/extrato.dto';
 import { InstituicaoBancariaDTO } from 'src/app/core/common/dtos/instituicao-bancaria.dto';
 import { AlertService } from 'src/app/core/common/services/alert.service';
 
@@ -23,15 +26,15 @@ export interface DespesaDTO {
   templateUrl: './importacao.component.html',
   styleUrls: ['./importacao.component.css'],
 })
-export class ImportacaoComponent implements OnInit, AfterViewInit {
+export class ImportacaoComponent implements OnInit {
 
-  title = 'Arquivos e Extratos';
+  title = 'Importação de Extratos Bancarios';
   @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
 
   dataList: any[] = [];
 
-  dataSource = [];
-  displayedColumns: string[] = ['id', 'progress', 'name', 'fruit'];
+  dataSource = new MatTableDataSource<ExtratoDTO>();
+  displayedColumns: string[] = ['idExtrato', 'instituicao', 'dataCriacao', 'acoes'];
 
   fileDto: ArquivoDTO = new ArquivoDTO();
   dadosArquivoExtraidos!: DespesaDTO[];
@@ -50,15 +53,28 @@ export class ImportacaoComponent implements OnInit, AfterViewInit {
     public dialog: MatDialog,
     private route: ActivatedRoute,
     private alert: AlertService,
-    private importacaoService: ImportacaoService,
-  ) { }
+    private extratoService: ExtratoServiceService,
+  ) {
+    this.getExtratos();
+  }
 
   ngOnInit() {
+    //this.getExtratos();
   }
 
-  ngAfterViewInit(): void {
+  getExtratos() {
+    this.extratoService.getItems().subscribe({
+      next: (data) => {
+        console.log(data);
 
+        this.dataSource = new MatTableDataSource(data);
+      },
+      error: (error) => {
+        this.alert.showError('Erro ao buscar extratos' + error.message);
+      }
+    });
   }
+
   // Handle file change event
   onFileChange(event: Event) {
     const target = event.target as HTMLInputElement;
@@ -90,6 +106,13 @@ export class ImportacaoComponent implements OnInit, AfterViewInit {
       return;
     }
     console.log(this.dadosArquivoExtraidos);
+
+    // this.extratoService.getAll().subscribe((data) => {
+    //   console.log(data);
+    // });
+
+
+
     this.alert.showSuccess('Upload Feito com Sucesso');
   }
 
@@ -110,5 +133,12 @@ export class ImportacaoComponent implements OnInit, AfterViewInit {
 
     return objectList;
   }
+
+  verTransacoes(_t107: any) {
+    throw new Error('Method not implemented.');
+    }
+    deletarExtrato(_t107: any) {
+    throw new Error('Method not implemented.');
+    }
 
 }

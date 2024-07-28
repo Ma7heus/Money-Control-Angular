@@ -15,3 +15,59 @@
       flex-grow: 1;
     }
 }
+
+
+table {
+  width: 100%;
+  margin: auto;
+}
+
+.mat-mdc-table {
+  overflow-y: auto;
+  white-space: nowrap;
+  td {
+      padding-right: 5px;
+  }
+}
+
+.mat-mdc-header-row {
+height: 30px;
+background-color: whitesmoke;
+border-radius: 5px;
+}
+
+.mdc-data-table__row {
+  height: 30px !important;
+}
+
+.mat-mdc-cell .mat-mdc-button {
+  min-width: unset;
+  padding: 0px;
+}
+
+.acoes {
+  text-align: center;
+  width: 30px;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+
+.acoes button {
+  margin-top: 0px;
+}
+
+.pMenu {
+  margin-top: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 8px;
+}
+
+.divMenu {
+  display: flex;
+  margin-bottom: -8px;
+}
+
+mat-slide-toggle {
+  padding-bottom: 19px;
+}

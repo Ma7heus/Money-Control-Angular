@@ -10,7 +10,7 @@ export class AlertService {
 
   openSnackBar(message: string, panelClass: string) {
     this._snackBar.open(message, 'Fechar', {
-      duration: 3000,
+      duration: 5000,
       horizontalPosition: 'center',
       verticalPosition: 'top',
       panelClass: panelClass

@@ -1,14 +1,12 @@
-import { Observable } from "rxjs";
-import { HttpClient } from "@angular/common/http";
-import { Inject, Injectable } from "@angular/core";
-import { AbstractDTO } from "../dtos/abstract.dto";
-import { PagedParamsDTO } from "../dtos/paged-params.dto";
-import { PagedResultDTO } from "../dtos/page-result.dto";
+import { HttpClient } from '@angular/common/http';
+import { Inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AbstractDTO } from '../dtos/abstract.dto';
 
 @Injectable({
   providedIn: 'root'
 })
-export abstract class AbstractService<T extends AbstractDTO> {
+export class ApiServiceService<T extends AbstractDTO> {
 
   protected baseUrl: string = 'http://localhost:3000/';
 
@@ -20,10 +18,6 @@ export abstract class AbstractService<T extends AbstractDTO> {
   getItems(): Observable<T[]> {
     return this.http.get<T[]>(`${this.baseUrl}${this.url}`);
   }
-
-  getPaged(params: PagedParamsDTO): Observable<PagedResultDTO<T>> {
-    return this.http.post<PagedResultDTO<T>>(`${this.baseUrl}${this.url}/paged`, params)
-    };
 
   getById(id: number): Observable<T> {
     return this.http.get<T>(`${this.baseUrl}${this.url}/${id}`);
