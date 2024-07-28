@@ -7,7 +7,7 @@ import { AbstractService } from './abstract-service';
 export class ImportacaoService extends AbstractService {
 
   constructor() {
-    const url = 'importacao';
+    const url = '/transacao';
     super(url);
   }
 }

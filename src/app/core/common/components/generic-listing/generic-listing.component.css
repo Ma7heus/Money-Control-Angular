@@ -1,0 +1,88 @@
+.div-filtro {
+  margin-top: 5px;
+}
+
+mat-card-footer {
+  display: contents;
+}
+
+mat-card-footer button {
+  margin-top: 1rem;
+  margin-left: 0rem;
+}
+
+table {
+  width: 100%;
+  margin: auto;
+}
+
+.mat-mdc-table {
+  overflow-y: auto;
+  white-space: nowrap;
+  td {
+      padding-right: 5px;
+  }
+}
+
+.mat-mdc-header-row {
+height: 30px;
+background-color: whitesmoke;
+border-radius: 5px;
+}
+
+.mdc-data-table__row {
+  height: 30px !important;
+}
+
+.mat-mdc-cell .mat-mdc-button {
+  min-width: unset;
+  padding: 0px;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 700px) {
+
+  .acoes {
+      min-width: 80px;
+      width: 20% !important;
+      padding-right: 6px !important;
+  }
+}
+
+@media only screen and (min-width: 701px) and (max-width: 1000px) {
+  .acoes {
+      width: 15%;
+  }
+}
+
+@media only screen and (min-width: 1001px) {
+  .acoes {
+      width: 10%;
+  }
+}
+
+.acoes {
+  text-align: center;
+  width: 30px;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+
+.acoes button {
+  margin-top: 0px;
+}
+
+.pMenu {
+  margin-top: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 8px;
+}
+
+.divMenu {
+  display: flex;
+  margin-bottom: -8px;
+}
+
+mat-slide-toggle {
+  padding-bottom: 19px;
+}

@@ -31,7 +31,7 @@ import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -66,9 +66,12 @@ import { FormsModule } from '@angular/forms';
     McDialogComponent,
     MatExpansionModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    BrowserModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
