@@ -32,6 +32,7 @@ import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     BrowserModule,
     HttpClientModule,
+    MatTooltipModule,
   ],
   providers: [
   ],
