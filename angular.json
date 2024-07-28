@@ -47,6 +47,12 @@
                   "maximumError": "5mb"
                 }
               ],
+              "fileReplacements": [
+								{
+									"replace": "environments/environment.ts",
+									"with": "environments/environment.prod.ts"
+								}
+							],
               "outputHashing": "all"
             },
             "development": {
@@ -64,21 +70,23 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "money-control-angular:build:production"
+              "buildTarget": "money-control-angular:build:production"
             },
+
             "development": {
-              "browserTarget": "money-control-angular:build:development"
+              "buildTarget": "money-control-angular:build:development"
             }
+
           },
           "defaultConfiguration": "development",
           "options": {
-            "browserTarget": "money-control-angular:build"
+            "buildTarget": "money-control-angular:build"
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "money-control-angular:build"
+            "buildTarget": "money-control-angular:build"
           }
         },
         "test": {
