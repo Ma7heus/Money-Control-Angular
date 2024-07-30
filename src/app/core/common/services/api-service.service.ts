@@ -2,13 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AbstractDTO } from '../dtos/abstract.dto';
+import { environment } from 'environments/environment.prod';
+
+const urlApi = environment.urlBase;
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiServiceService<T extends AbstractDTO> {
 
-  protected baseUrl: string = 'http://localhost:3000/';
+  protected baseUrl: string = urlApi;
 
   constructor(
     protected http: HttpClient,

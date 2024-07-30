@@ -1,5 +1,5 @@
 export const environment = {
 	production: false,
 	homologation: true,
-	urlBase: 'http://localhost:3000/',
+	urlBase: 'https://money-control-api-node.vercel.app/',
 };
