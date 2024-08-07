@@ -1,18 +1,170 @@
-<div class="container-mes">
-  <mat-button-toggle-group *ngFor="let mes of listaMeses" #group="matButtonToggleGroup">
-    <mat-button-toggle  value="{{mes}}" aria-label="Text align center">
-      <a>{{mes}}</a>
-    </mat-button-toggle>
-  </mat-button-toggle-group>
-</div>
+<mat-card class="card-container">
+  <div class="row" style="height: 50%;">
+    <div class="col-md-6">
+      <mat-card style="background-color: rgb(110, 218, 110); color: white; font-weight: bold;height: 95%; width: 100%;">
+        <mat-card-subtitle>
+          Crescimento Patrimonial
+        </mat-card-subtitle>
+        <mat-card-content>
+          grafico
+        </mat-card-content>
+
+      </mat-card>
+    </div>
+
+    <div class="col-md-3" style="height: 100%; padding: 0; margin: 0;">
+      <mat-card style="background-color: #03A9F4;">
+        <mat-card-subtitle style="font-size: x-large; padding-top: 5px;">
+          OBJETIVO
+        </mat-card-subtitle>
+        <mat-card-content>
+          <mat-card style=" border-radius: 10px;">
+            <mat-card-content style="font-weight: bold; font-size: x-large; padding: 5px;">
+              R$ 650.230,00
+            </mat-card-content>
+          </mat-card>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card style="background-color: #B2DFDB;">
+        <mat-card-title>
+          ALCANÇADO
+        </mat-card-title>
+        <mat-card-content>
+          <mat-card style=" border-radius: 30px;">
+            <mat-card-content style="font-weight: bold">
+              R$ 50.933,00
+            </mat-card-content>
+          </mat-card>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card style="background-color: #4CAF50;">
+        <mat-card-title>
+          FALTANTE
+        </mat-card-title>
+        <mat-card-content>
+          <mat-card style=" border-radius: 30px;">
+            <mat-card-content style="font-weight: bold">
+              R$ 600.933,00
+            </mat-card-content>
+          </mat-card>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col-md-3">
+      <mat-card  style="background-color: #8BC34A;">
+        <mat-card-title>
+          Tempo Para Alcançar Objetivo
+        </mat-card-title>
+
+        <mat-card-content>
+          <mat-card>
+            <mat-card-content>
+              1 ANO, 7 MESES 2 DIAS
+            </mat-card-content>
+
+          </mat-card>
 
 
-
-<div class="container">
-  <mat-grid-list cols="4" rowHeight="2:4" gutterSize="10px">
-   
-  </mat-grid-list>
-
-</div>
+        </mat-card-content>
 
 
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row" style="height: 50%;">
+    <div class="col-md-6">
+
+      <mat-card>
+
+        <mat-card-subtitle>
+          DIVISÃO DA CARTEIRA
+        </mat-card-subtitle>
+
+        <mat-card-content>
+
+          <div class="row">
+            <div class="col-md-6">
+              <mat-card style="background-color: #4CAF50; border-radius: 10px;">
+                <mat-card-title>
+                  CAIXA
+                </mat-card-title>
+                <mat-card-content>
+                  <mat-card style=" border-radius: 30px;">
+                    <mat-card-content style="font-size: x-large; font-weight: bold;  text-align: center; padding: 5;">
+                      R$ 650.230,00
+                    </mat-card-content>
+                  </mat-card>
+                </mat-card-content>
+              </mat-card>
+            </div>
+
+            <div class="col-md-6" style="background-color: #4CAF50; border-radius: 10px;">
+              <mat-card>
+
+                <mat-card-title>
+                  AÇÕES
+                </mat-card-title>
+
+                <mat-card-content>
+                <mat-card style=" border-radius: 30px;">
+                  <mat-card-content style="font-weight: bold">
+                    R$ 650.230,00
+                  </mat-card-content>
+                </mat-card>
+              </mat-card-content>
+            </mat-card>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <mat-card-title>
+                CAIXA
+              </mat-card-title>
+
+              <mat-card-content>
+                <mat-card style=" border-radius: 30px;">
+                  <mat-card-content style="font-weight: bold">
+                    R$ 650.230,00
+                  </mat-card-content>
+                </mat-card>
+              </mat-card-content>
+            </div>
+
+            <div class="col-md-6" style="background-color: #4CAF50; border-radius: 10px;">
+              <mat-card-title>
+                AÇÕES
+              </mat-card-title>
+
+              <mat-card-content>
+                <mat-card style=" border-radius: 30px;">
+                  <mat-card-content style="font-weight: bold">
+                    R$ 650.230,00
+                  </mat-card-content>
+                </mat-card>
+              </mat-card-content>
+            </div>
+          </div>
+
+        </mat-card-content>
+
+      </mat-card>
+    </div>
+
+    <div class="col-md-6">
+      <mat-card>
+        <mat-card-subtitle>
+          ULTIMAS MOVIMENTAÇÕES
+        </mat-card-subtitle>
+        <mat-card-content>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+</mat-card>

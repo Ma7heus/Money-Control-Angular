@@ -1,27 +1,13 @@
-.container-mes {
+.card-container {
   display: flex;
-  height: 10%;
-  width: 100%;
-  justify-content: center;
-  background-color: rgb(15, 15, 114);
-  align-items: center;
+  width: 95%;
+  margin: auto;
+  height: 100%;
+  text-align: center;
 }
 
-
-.container {
+mat-card {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 70%;
-}
-
-mat-grid-list{
-  width: 90%;
-
-
-}
-
-mat-grid-tile {
-  background: lightblue;
-  border-radius: 30px;
+  margin: 10px;
+  border-radius: 10px;
 }
