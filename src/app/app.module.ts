@@ -34,6 +34,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgChartsModule } from 'ng2-charts';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { NgChartsModule } from 'ng2-charts';
     HttpClientModule,
     MatTooltipModule,
     NgChartsModule,
+    MatDialogModule,
   ],
   providers: [
   ],

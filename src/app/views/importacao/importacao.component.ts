@@ -1,13 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { ExtratoServiceService } from './../../core/common/services/extrato-service.service';
-import { ImportacaoService } from './../../core/common/services/importacao.service';
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatSort } from '@angular/material/sort';
+import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild, inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogModule, MatDialogTitle } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
-import { McDialogComponent } from 'src/app/core/common/components/mc-dialog/mc-dialog.component';
 import { ArquivoDTO } from 'src/app/core/common/dtos/arquivo.dto';
 import { ExtratoDTO } from 'src/app/core/common/dtos/extrato.dto';
 import { InstituicaoBancariaDTO } from 'src/app/core/common/dtos/instituicao-bancaria.dto';
@@ -27,6 +24,8 @@ export interface DespesaDTO {
   styleUrls: ['./importacao.component.css'],
 })
 export class ImportacaoComponent implements OnInit {
+
+  readonly dialogTransacoes = inject(MatDialog);
 
   title = 'Importação de Extratos Bancarios';
   @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
@@ -134,11 +133,46 @@ export class ImportacaoComponent implements OnInit {
     return objectList;
   }
 
-  verTransacoes(_t107: any) {
-    throw new Error('Method not implemented.');
-    }
-    deletarExtrato(_t107: any) {
-    throw new Error('Method not implemented.');
-    }
+  verTransacoes(extrato: ExtratoDTO) {
+    console.log("EXtrato: ", extrato);
 
+
+    this.dialogTransacoes.open(DialogElementsExampleDialog,
+      {
+        data: extrato,
+        width: '500px',
+        height: '500px',
+      });
+  }
+
+  deletarExtrato(_t107: any) {
+    throw new Error('Method not implemented.');
+  }
+
+}
+
+
+@Component({
+  selector: 'dialog-transacoes',
+  templateUrl: './dialog-transacoes.html',
+  standalone: true,
+  imports: [
+    MatDialogModule,
+    MatButtonModule,
+    CommonModule,
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+
+export class DialogElementsExampleDialog {
+
+  data = inject<any>(MAT_DIALOG_DATA);
+
+  constructor() {
+    console.log("Dialog", this);
+  }
+
+  closeDialog() {
+    this.closeDialog();
+  }
 }

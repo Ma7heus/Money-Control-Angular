@@ -1,0 +1,32 @@
+<div class="container">
+
+
+  <h2 mat-dialog-title>Transações</h2>
+  <span>Extrato: {{data.idExtrato}}</span>
+  <span>Intituição: {{data.instituicao}}</span>
+
+  <mat-dialog-content>
+    <table>
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Descrição</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transacao of data.transacoes">
+          <td>{{ transacao.data }}</td>
+          <td>{{ transacao.descricao }}</td>
+          <td>{{ transacao.valor }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+  </mat-dialog-actions>
+
+</div>
