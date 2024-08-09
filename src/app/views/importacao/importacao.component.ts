@@ -107,7 +107,6 @@ export class ImportacaoComponent implements OnInit {
       data.shift();
       data.pop();
 
-
       this.dto.transacaos = data;
       console.log(this.dto);
 
