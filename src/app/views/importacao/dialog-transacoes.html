@@ -1,32 +1,61 @@
-<div class="container">
+<mat-card>
 
+  <div class="row" style="background-color: black; color: white;">
+    <div class="col-md-11">
+      <mat-card-header style="display: flex; align-items: center; padding-top: 0;">
+        <mat-card-title>Extrato Nº {{data.idExtrato}}</mat-card-title>
 
-  <h2 mat-dialog-title>Transações</h2>
-  <span>Extrato: {{data.idExtrato}}</span>
-  <span>Intituição: {{data.instituicao}}</span>
+        <mat-card-subtitle style="color: white;">
+          Intituição: {{data.instituicao}}
+        </mat-card-subtitle>
+        <mat-card-subtitle style="color: white;">
+          Data: {{data.dataCriacao | date:'dd/MM/yyyy'}}
+        </mat-card-subtitle>
+    </mat-card-header>
+    </div>
 
-  <mat-dialog-content>
-    <table>
-      <thead>
-        <tr>
-          <th>Data</th>
-          <th>Descrição</th>
-          <th>Valor</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let transacao of data.transacoes">
-          <td>{{ transacao.data }}</td>
-          <td>{{ transacao.descricao }}</td>
-          <td>{{ transacao.valor }}</td>
-        </tr>
-      </tbody>
+    <div class="col-md-1" style="display: flex; justify-content: center; align-items: center;">
+      <button (click)="closeDialog()" mat-mini-fab color="warn">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <mat-card-content style="padding: 20px;">
+    <mat-form-field>
+      <mat-label>Filtro</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Digite aqui para filtrar" #input>
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" style="width: 100%;">
+
+      <ng-container matColumnDef="descricao">
+        <th mat-header-cell *matHeaderCellDef> Descrição </th>
+        <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="categoria">
+        <th mat-header-cell *matHeaderCellDef> Categoria </th>
+        <td mat-cell *matCellDef="let element"> {{element.categoria}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="datatransacao">
+        <th mat-header-cell *matHeaderCellDef> Data </th>
+        <td mat-cell *matCellDef="let element"> {{element.datatransacao | date:'dd/MM/yyyy HH:mm'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="valor">
+        <th mat-header-cell *matHeaderCellDef> Valor </th>
+        <td mat-cell *matCellDef="let element"> {{element.valor | currency: 'BRL'}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell text-center" colspan="4" >Nenhum resultado encontrado{{input.value}}</td>
+      </tr>
     </table>
+  </mat-card-content>
 
-  </mat-dialog-content>
-
-  <mat-dialog-actions>
-    <button mat-button mat-dialog-close>Close</button>
-  </mat-dialog-actions>
-
-</div>
+</mat-card>

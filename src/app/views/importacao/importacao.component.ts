@@ -2,13 +2,21 @@ import { CommonModule } from '@angular/common';
 import { ExtratoServiceService } from './../../core/common/services/extrato-service.service';
 import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogModule, MatDialogTitle } from '@angular/material/dialog';
-import { MatTableDataSource } from '@angular/material/table';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogModule, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ArquivoDTO } from 'src/app/core/common/dtos/arquivo.dto';
 import { ExtratoDTO } from 'src/app/core/common/dtos/extrato.dto';
 import { InstituicaoBancariaDTO } from 'src/app/core/common/dtos/instituicao-bancaria.dto';
 import { AlertService } from 'src/app/core/common/services/alert.service';
+import { GenericListingComponent } from 'src/app/core/common/components/generic-listing/generic-listing.component';
+import { ColumnDTO } from 'src/app/core/common/dtos/column.dto';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { TransacaoDTO } from 'src/app/core/common/dtos/Transacao.dto';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 
 export interface DespesaDTO {
   id?: number;
@@ -140,8 +148,8 @@ export class ImportacaoComponent implements OnInit {
     this.dialogTransacoes.open(DialogElementsExampleDialog,
       {
         data: extrato,
-        width: '500px',
-        height: '500px',
+        width: '100%',
+
       });
   }
 
@@ -155,24 +163,45 @@ export class ImportacaoComponent implements OnInit {
 @Component({
   selector: 'dialog-transacoes',
   templateUrl: './dialog-transacoes.html',
+  styleUrls: ['./dialog-transacoes.css'],
   standalone: true,
   imports: [
     MatDialogModule,
     MatButtonModule,
     CommonModule,
+    GenericListingComponent,
+    MatCardModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDividerModule,
+    MatIconModule,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class DialogElementsExampleDialog {
+export class DialogElementsExampleDialog implements OnInit {
+  dialog = inject(MatDialogRef<DialogElementsExampleDialog>);
 
-  data = inject<any>(MAT_DIALOG_DATA);
+  data = inject<ExtratoDTO>(MAT_DIALOG_DATA);
+  displayedColumns: string[] = ['descricao', 'categoria', 'datatransacao', 'valor'];
+  dataSource = new MatTableDataSource<TransacaoDTO>();
 
-  constructor() {
-    console.log("Dialog", this);
+  columns: ColumnDTO[] = [
+    { property: 'data', label: 'Data',type: 'text' },
+  ];
+
+  ngOnInit() {
+    console.log("Data: ", this.data);
+    this.dataSource = new MatTableDataSource(this.data.transacaos);
   }
 
   closeDialog() {
-    this.closeDialog();
+    this.dialog.close();
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }
