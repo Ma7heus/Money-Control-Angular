@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { TransacaoDTO } from 'src/app/core/common/dtos/Transacao.dto';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { ListKeyManager } from '@angular/cdk/a11y';
 
 export interface DespesaDTO {
   id?: number;
@@ -39,6 +40,7 @@ export class ImportacaoComponent implements OnInit {
   @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
 
   dataList: any[] = [];
+  dto: ExtratoDTO = new ExtratoDTO();
 
   dataSource = new MatTableDataSource<ExtratoDTO>();
   displayedColumns: string[] = ['idExtrato', 'instituicao', 'dataCriacao', 'acoes'];
@@ -101,7 +103,13 @@ export class ImportacaoComponent implements OnInit {
       const data = this.convertStringListToObjectList(dataList);
       this.dadosArquivoExtraidos = data;
 
-      console.log(data);
+      //tirar primeiro e ultimo item da lista
+      data.shift();
+      data.pop();
+
+
+      this.dto.transacaos = data;
+      console.log(this.dto);
 
     };
     reader.readAsText(file);
@@ -112,13 +120,11 @@ export class ImportacaoComponent implements OnInit {
       this.alert.showError('Nenhum arquivo selecionado');
       return;
     }
-    console.log(this.dadosArquivoExtraidos);
+    console.log(this.dto);
 
-    // this.extratoService.getAll().subscribe((data) => {
+    // this.extratoService.create(this.dto).subscribe((data) => {
     //   console.log(data);
     // });
-
-
 
     this.alert.showSuccess('Upload Feito com Sucesso');
   }
@@ -188,7 +194,7 @@ export class DialogElementsExampleDialog implements OnInit {
   dataSource = new MatTableDataSource<TransacaoDTO>();
 
   columns: ColumnDTO[] = [
-    { property: 'data', label: 'Data',type: 'text' },
+    { property: 'data', label: 'Data', type: 'text' },
   ];
 
   ngOnInit() {

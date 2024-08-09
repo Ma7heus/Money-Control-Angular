@@ -4,8 +4,13 @@ import { TransacaoDTO } from "./Transacao.dto";
 export class ExtratoDTO extends AbstractDTO {
   idextrato!: number;
   idExtrato!: number;
-  datacriacao!: string;
   dataCriacao!: string;
   instituicao!: string;
   transacaos!: TransacaoDTO[];
+
+  constructor() {
+    super();
+    this.dataCriacao = new Date().toISOString();
+    this.transacaos = [];
+  }
 }

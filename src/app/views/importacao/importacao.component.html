@@ -12,10 +12,10 @@
       <div class="col-md-6">
         <mat-form-field appearance="fill">
           <mat-label>Instituição</mat-label>
-          <mat-select required [(value)]="fileDto.instituicao">
+          <mat-select required [(value)]="dto.instituicao">
             <mat-option
               *ngFor="let instituicao of intituicoes"
-              [value]="instituicao.id"
+              [value]="instituicao.nome"
             >
               {{ instituicao.nome }}
             </mat-option>
